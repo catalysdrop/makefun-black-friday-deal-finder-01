@@ -1,0 +1,466 @@
+/* DealHound's look: warm paper background, near-black header, amber accent.
+   Cards carry the deals; badges carry the verdict. No web fonts, no images,
+   nothing loaded over the network. */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #faf6f0;
+  color: #1c1917;
+  font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+a {
+  color: #92400e;
+}
+
+a:hover {
+  color: #78350f;
+}
+
+.site-header {
+  background: #1c1917;
+  color: #faf6f0;
+  padding: 20px 0 18px;
+  border-bottom: 4px solid #d97706;
+}
+
+.brand {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.brand a {
+  color: #faf6f0;
+  text-decoration: none;
+}
+
+.brand-tag {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: #d97706;
+  color: #1c1917;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  vertical-align: middle;
+}
+
+.tagline {
+  margin: 6px 0 0;
+  color: #d6d3d1;
+  font-size: 15px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  padding-top: 16px;
+}
+
+.stat {
+  background: #fff;
+  border: 1px solid #e7e0d6;
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.stat strong {
+  display: block;
+  font-size: 26px;
+  line-height: 1.1;
+  color: #92400e;
+}
+
+.stat span {
+  font-size: 13px;
+  color: #57534e;
+}
+
+.controls {
+  padding-top: 16px;
+}
+
+.search-label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.search-label input {
+  width: 100%;
+  margin-top: 4px;
+  padding: 10px 12px;
+  border: 1px solid #d6d3d1;
+  border-radius: 8px;
+  font: inherit;
+  background: #fff;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.chip {
+  padding: 6px 12px;
+  border: 1px solid #d6d3d1;
+  border-radius: 999px;
+  background: #fff;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.chip:hover {
+  border-color: #d97706;
+}
+
+.chip.active {
+  background: #1c1917;
+  border-color: #1c1917;
+  color: #faf6f0;
+  font-weight: 700;
+}
+
+.selects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.selects label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #44403c;
+}
+
+.selects select {
+  display: block;
+  margin-top: 4px;
+  padding: 8px 10px;
+  border: 1px solid #d6d3d1;
+  border-radius: 8px;
+  font: inherit;
+  background: #fff;
+  max-width: 220px;
+}
+
+.count {
+  margin: 12px 0 0;
+  font-size: 14px;
+  color: #57534e;
+}
+
+#app {
+  padding-top: 16px;
+  padding-bottom: 8px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e7e0d6;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card h2 {
+  margin: 8px 0 4px;
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.card h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card h2 a:hover {
+  color: #92400e;
+  text-decoration: underline;
+}
+
+.tags {
+  margin: 0;
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.store {
+  color: #92400e;
+}
+
+.category {
+  color: #57534e;
+}
+
+.price {
+  margin: 6px 0 2px;
+}
+
+.price .sale {
+  font-size: 28px;
+  font-weight: 800;
+  color: #15803d;
+}
+
+.price .was {
+  margin-left: 6px;
+  color: #78716c;
+  font-size: 17px;
+}
+
+.price.big .sale {
+  font-size: 36px;
+}
+
+.save {
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+
+.save.big {
+  font-size: 18px;
+}
+
+.verdict {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.verdict-all-time-low {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #f59e0b;
+}
+
+.verdict-strong {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #22c55e;
+}
+
+.verdict-good {
+  background: #dbeafe;
+  color: #1e40af;
+  border: 1px solid #60a5fa;
+}
+
+.verdict-routine {
+  background: #f5f5f4;
+  color: #57534e;
+  border: 1px solid #d6d3d1;
+}
+
+.blurb {
+  margin: 0 0 8px;
+  color: #44403c;
+}
+
+.blurb.big {
+  font-size: 17px;
+}
+
+.verdict-note {
+  margin: 0 0 8px;
+  padding: 8px 10px;
+  background: #fffbeb;
+  border-left: 3px solid #d97706;
+  font-size: 14px;
+  color: #44403c;
+}
+
+.also {
+  margin: 0 0 6px;
+  font-size: 14px;
+  color: #57534e;
+}
+
+.meta {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: #78716c;
+}
+
+.buy {
+  display: inline-block;
+  margin-top: auto;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: #15803d;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.buy:hover {
+  background: #166534;
+  color: #fff;
+}
+
+.buy.big {
+  font-size: 17px;
+  padding: 12px 20px;
+}
+
+.empty {
+  background: #fff;
+  border: 1px solid #e7e0d6;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.back {
+  font-weight: 700;
+}
+
+.detail {
+  background: #fff;
+  border: 1px solid #e7e0d6;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.detail h1 {
+  margin: 8px 0 4px;
+  font-size: 28px;
+  line-height: 1.25;
+}
+
+.detail h2 {
+  margin: 24px 0 8px;
+  font-size: 19px;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 6px 20px;
+  margin: 16px 0;
+  padding: 16px;
+  background: #faf6f0;
+  border-radius: 8px;
+}
+
+.facts dt {
+  font-weight: 700;
+}
+
+.facts dd {
+  margin: 0;
+}
+
+.compare {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.compare th,
+.compare td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #e7e0d6;
+  text-align: left;
+}
+
+.compare th {
+  background: #faf6f0;
+}
+
+footer {
+  padding: 24px 16px 48px;
+  color: #57534e;
+  font-size: 14px;
+}
+
+footer p {
+  max-width: 860px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    padding-top: 10px;
+  }
+
+  .stat {
+    padding: 8px 10px;
+  }
+
+  .stat strong {
+    font-size: 21px;
+  }
+
+  .site-header {
+    padding: 12px 0 12px;
+  }
+
+  .brand {
+    font-size: 25px;
+  }
+
+  .detail {
+    padding: 16px;
+  }
+
+  .detail h1 {
+    font-size: 23px;
+  }
+
+  .selects label {
+    flex: 1 1 40%;
+  }
+
+  .selects select {
+    width: 100%;
+    max-width: none;
+  }
+}
